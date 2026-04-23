@@ -1,7 +1,8 @@
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
-import { Menu, X, User, LogOut, Home, Book, Code, FileText, Trophy, UserCircle } from 'lucide-react';
+import { useAppStore } from '../store';
+import { Menu, X, LogOut, Home, Book, Code, FileText, Trophy, UserCircle, Users } from 'lucide-react';
 
 const Layout = () => {
   const [user, setUser] = useState<any>(null);

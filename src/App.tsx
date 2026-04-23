@@ -9,6 +9,7 @@ import Assessment from './pages/Assessment';
 import AssessmentDetail from './pages/AssessmentDetail';
 import Achievements from './pages/Achievements';
 import Profile from './pages/Profile';
+import Community from './pages/Community';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="assessment" element={<Assessment />} />
           <Route path="assessment/:id" element={<AssessmentDetail />} />
           <Route path="achievements" element={<Achievements />} />
+          <Route path="community" element={<Community />} />
           <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="/login" element={<Login />} />
