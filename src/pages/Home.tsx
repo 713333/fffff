@@ -48,6 +48,16 @@ const Home = () => {
         duration: 14,
         rating: 4.7,
         students: 1890
+      },
+      {
+        id: '4',
+        title: '数据库分析与SQL',
+        description: '掌握SQL查询和数据库分析技能，玩转MySQL和PostgreSQL',
+        cover_image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=SQL%20database%20analysis%20course%20cover%20with%20database%20icons&image_size=landscape_16_9',
+        difficulty: '高级',
+        duration: 20,
+        rating: 4.9,
+        students: 1750
       }
     ]);
 
@@ -72,6 +82,13 @@ const Home = () => {
         icon: <BarChart2 className="h-8 w-8" />,
         description: 'Matplotlib、Seaborn等可视化工具',
         color: 'from-accent-500 to-accent-700'
+      },
+      {
+        id: '数据库分析',
+        name: '数据库分析',
+        icon: <Database className="h-8 w-8" />,
+        description: 'SQL、MySQL、PostgreSQL等数据库',
+        color: 'from-orange-500 to-orange-700'
       },
       {
         id: '机器学习',
@@ -170,7 +187,7 @@ const Home = () => {
           </Link>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {categories.map((category) => (
             <Link 
               key={category.id}
@@ -202,7 +219,7 @@ const Home = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {courses.map((course) => (
             <Link 
               key={course.id}

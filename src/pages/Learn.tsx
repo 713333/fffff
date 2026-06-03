@@ -170,6 +170,154 @@ print(fruits[-1])             # 访问最后一个元素</code></pre>
             ]
           }
         ]
+      },
+      {
+        id: '4',
+        title: '数据库分析与SQL',
+        chapters: [
+          {
+            id: '1',
+            title: 'SQL基础',
+            lessons: [
+              {
+                id: '1-1',
+                title: 'SQL简介与环境搭建',
+                type: 'video',
+                duration: '45分钟',
+                content: `
+                  <h2 class="text-2xl font-bold mb-4">欢迎学习数据库分析与SQL</h2>
+                  <p class="mb-4">本课程将带你从零开始学习SQL，掌握数据库查询和分析的核心技能。</p>
+                  <h3 class="text-xl font-semibold mb-3">什么是SQL？</h3>
+                  <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li>Structured Query Language（结构化查询语言）</li>
+                    <li>用于管理和操作关系型数据库</li>
+                    <li>数据分析的必备技能</li>
+                    <li>广泛应用于各大企业</li>
+                  </ul>
+                  <h3 class="text-xl font-semibold mb-3">常见数据库</h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="bg-gradient-to-br from-primary-50 to-accent-50 p-4 rounded-xl">
+                      <h4 class="font-semibold text-primary-700 mb-2">MySQL</h4>
+                      <p class="text-sm text-gray-600">开源数据库，应用广泛</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-primary-50 to-accent-50 p-4 rounded-xl">
+                      <h4 class="font-semibold text-primary-700 mb-2">PostgreSQL</h4>
+                      <p class="text-sm text-gray-600">功能强大，开源免费</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-primary-50 to-accent-50 p-4 rounded-xl">
+                      <h4 class="font-semibold text-primary-700 mb-2">SQLite</h4>
+                      <p class="text-sm text-gray-600">轻量级，适合学习</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-primary-50 to-accent-50 p-4 rounded-xl">
+                      <h4 class="font-semibold text-primary-700 mb-2">Oracle</h4>
+                      <p class="text-sm text-gray-600">企业级数据库</p>
+                    </div>
+                  </div>
+                `
+              },
+              {
+                id: '1-2',
+                title: 'SELECT查询基础',
+                type: 'video',
+                duration: '55分钟',
+                content: `
+                  <h2 class="text-2xl font-bold mb-4">SELECT查询基础</h2>
+                  <p class="mb-4">学习最基础的SQL查询语句，掌握SELECT、FROM、WHERE等关键字的用法。</p>
+                  <h3 class="text-xl font-semibold mb-3">基本查询</h3>
+                  <pre class="bg-gray-800 text-white p-4 rounded-lg mb-4 overflow-x-auto"><code>-- 查询所有列
+SELECT * FROM users;
+
+-- 查询指定列
+SELECT name, email, age FROM users;
+
+-- 列别名
+SELECT name AS 姓名, email AS 邮箱 FROM users;
+
+-- 去重查询
+SELECT DISTINCT department FROM employees;</code></pre>
+                  <h3 class="text-xl font-semibold mb-3">WHERE条件筛选</h3>
+                  <pre class="bg-gray-800 text-white p-4 rounded-lg mb-4 overflow-x-auto"><code>-- 等于条件
+SELECT * FROM users WHERE age = 25;
+
+-- 范围条件
+SELECT * FROM users WHERE age > 18 AND age < 30;
+
+-- 模糊查询
+SELECT * FROM users WHERE name LIKE '张%';</code></pre>
+                `
+              },
+              {
+                id: '1-3',
+                title: '条件筛选与排序',
+                type: 'video',
+                duration: '50分钟',
+                content: `
+                  <h2 class="text-2xl font-bold mb-4">条件筛选与排序</h2>
+                  <p class="mb-4">深入学习WHERE条件筛选和ORDER BY排序功能。</p>
+                  <h3 class="text-xl font-semibold mb-3">排序</h3>
+                  <pre class="bg-gray-800 text-white p-4 rounded-lg mb-4 overflow-x-auto"><code>-- 升序排序
+SELECT * FROM users ORDER BY age ASC;
+
+-- 降序排序
+SELECT * FROM users ORDER BY age DESC;
+
+-- 多列排序
+SELECT * FROM users ORDER BY department ASC, age DESC;</code></pre>
+                `
+              },
+              {
+                id: '1-4',
+                title: 'SQL基础练习',
+                type: 'exercise',
+                duration: '35分钟',
+                content: `
+                  <h2 class="text-2xl font-bold mb-4">SQL基础练习</h2>
+                  <p class="mb-4">通过实际SQL练习，巩固所学的基础知识。</p>
+                  <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                    <h3 class="font-semibold text-yellow-800 mb-2">练习题目</h3>
+                    <p class="text-yellow-700">查询年龄大于25岁且部门为'技术部'的所有员工，并按入职时间降序排列。</p>
+                  </div>
+                  <div class="bg-primary-50 border-l-4 border-primary-400 p-4 mb-4">
+                    <h3 class="font-semibold text-primary-800 mb-2">提示</h3>
+                    <ul class="list-disc pl-6 text-primary-700">
+                      <li>使用 WHERE 子句筛选条件</li>
+                      <li>使用 AND 连接多个条件</li>
+                      <li>使用 ORDER BY 进行排序</li>
+                    </ul>
+                  </div>
+                `
+              }
+            ]
+          },
+          {
+            id: '2',
+            title: '数据库设计',
+            lessons: [
+              { id: '2-1', title: '数据建模', type: 'video', duration: '60分钟' },
+              { id: '2-2', title: '表设计与关系', type: 'video', duration: '55分钟' },
+              { id: '2-3', title: '数据库设计练习', type: 'exercise', duration: '45分钟' }
+            ]
+          },
+          {
+            id: '3',
+            title: '高级查询',
+            lessons: [
+              { id: '3-1', title: 'JOIN表连接', type: 'video', duration: '65分钟' },
+              { id: '3-2', title: '子查询与CTE', type: 'video', duration: '50分钟' },
+              { id: '3-3', title: '聚合函数', type: 'video', duration: '50分钟' },
+              { id: '3-4', title: '高级查询练习', type: 'exercise', duration: '55分钟' }
+            ]
+          },
+          {
+            id: '4',
+            title: '数据库管理',
+            lessons: [
+              { id: '4-1', title: '索引与性能优化', type: 'video', duration: '55分钟' },
+              { id: '4-2', title: '数据备份与恢复', type: 'video', duration: '40分钟' },
+              { id: '4-3', title: '综合项目实战', type: 'exercise', duration: '120分钟' }
+            ]
+          }
+        ]
       }
     ];
     

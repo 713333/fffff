@@ -85,6 +85,18 @@ const Courses = () => {
         rating: 4.8,
         students: 1680,
         chapters: 40
+      },
+      {
+        id: '7',
+        title: '数据库分析与SQL',
+        description: '掌握SQL查询和数据库分析技能，玩转MySQL和PostgreSQL',
+        cover_image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=SQL%20database%20analysis%20course%20cover%20with%20database%20icons&image_size=landscape_16_9',
+        difficulty: '高级',
+        category: '数据库分析',
+        duration: 20,
+        rating: 4.9,
+        students: 1750,
+        chapters: 40
       }
     ]);
 
@@ -93,6 +105,7 @@ const Courses = () => {
       { id: '基础入门', name: '基础入门', icon: '🌱' },
       { id: '数据处理', name: '数据处理', icon: '🔧' },
       { id: '数据可视化', name: '数据可视化', icon: '📊' },
+      { id: '数据库分析', name: '数据库分析', icon: '🗄️' },
       { id: '机器学习', name: '机器学习', icon: '🤖' }
     ]);
   }, []);

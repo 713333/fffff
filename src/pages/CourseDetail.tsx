@@ -206,6 +206,163 @@ const CourseDetail = () => {
             ]
           }
         ]
+      },
+      {
+        id: '4',
+        title: '数据库分析与SQL',
+        description: '掌握SQL查询和数据库分析技能，玩转MySQL和PostgreSQL，成为数据管理专家。',
+        cover_image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=SQL%20database%20analysis%20course%20cover%20with%20database%20icons&image_size=landscape_16_9',
+        difficulty: '高级',
+        category: '数据库分析',
+        duration: 20,
+        rating: 4.9,
+        instructor: '陈教授',
+        instructor_bio: '数据库专家，拥有15年数据库管理和分析经验，曾负责多个大型企业数据库项目。',
+        instructor_avatar: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20database%20teacher%20avatar&image_size=square',
+        start_date: '2026-02-15',
+        students: 1750,
+        chapters: [
+          {
+            id: '1',
+            title: 'SQL基础',
+            description: '从零开始学习SQL语言',
+            lessons: [
+              { 
+                id: '1-1', 
+                title: 'SQL简介与环境搭建', 
+                type: 'video', 
+                duration: '45分钟', 
+                completed: false,
+                content: '了解什么是SQL，为什么要学习SQL，以及如何安装和配置数据库环境...'
+              },
+              { 
+                id: '1-2', 
+                title: 'SELECT查询基础', 
+                type: 'video', 
+                duration: '55分钟', 
+                completed: false,
+                content: '学习最基础的SQL查询语句，掌握SELECT、FROM、WHERE等关键字的用法...'
+              },
+              { 
+                id: '1-3', 
+                title: '条件筛选与排序', 
+                type: 'video', 
+                duration: '50分钟', 
+                completed: false,
+                content: '深入学习WHERE条件筛选和ORDER BY排序功能...'
+              },
+              { 
+                id: '1-4', 
+                title: 'SQL基础练习', 
+                type: 'exercise', 
+                duration: '35分钟', 
+                completed: false,
+                content: '通过实际题目巩固SQL基础知识...'
+              }
+            ]
+          },
+          {
+            id: '2',
+            title: '数据库设计',
+            description: '学习如何设计规范的数据库',
+            lessons: [
+              { 
+                id: '2-1', 
+                title: '数据建模', 
+                type: 'video', 
+                duration: '60分钟', 
+                completed: false,
+                content: '学习数据库建模的基本原则，掌握ER图的绘制方法...'
+              },
+              { 
+                id: '2-2', 
+                title: '表设计与关系', 
+                type: 'video', 
+                duration: '55分钟', 
+                completed: false,
+                content: '了解数据库表设计的最佳实践，掌握一对多、多对多等关系的实现...'
+              },
+              { 
+                id: '2-3', 
+                title: '数据库设计练习', 
+                type: 'exercise', 
+                duration: '45分钟', 
+                completed: false,
+                content: '设计一个电商平台的数据库...'
+              }
+            ]
+          },
+          {
+            id: '3',
+            title: '高级查询',
+            description: '掌握SQL高级查询技巧',
+            lessons: [
+              { 
+                id: '3-1', 
+                title: 'JOIN表连接', 
+                type: 'video', 
+                duration: '65分钟', 
+                completed: false,
+                content: '学习INNER JOIN、LEFT JOIN、RIGHT JOIN等表连接操作...'
+              },
+              { 
+                id: '3-2', 
+                title: '子查询与CTE', 
+                type: 'video', 
+                duration: '50分钟', 
+                completed: false,
+                content: '掌握子查询和公用表表达式的用法...'
+              },
+              { 
+                id: '3-3', 
+                title: '聚合函数', 
+                type: 'video', 
+                duration: '50分钟', 
+                completed: false,
+                content: '学习SUM、COUNT、AVG等聚合函数，掌握GROUP BY分组查询...'
+              },
+              { 
+                id: '3-4', 
+                title: '高级查询练习', 
+                type: 'exercise', 
+                duration: '55分钟', 
+                completed: false,
+                content: '通过实际项目练习高级查询技巧...'
+              }
+            ]
+          },
+          {
+            id: '4',
+            title: '数据库管理',
+            description: '学习数据库维护和优化',
+            lessons: [
+              { 
+                id: '4-1', 
+                title: '索引与性能优化', 
+                type: 'video', 
+                duration: '55分钟', 
+                completed: false,
+                content: '了解数据库索引原理，学习如何优化查询性能...'
+              },
+              { 
+                id: '4-2', 
+                title: '数据备份与恢复', 
+                type: 'video', 
+                duration: '40分钟', 
+                completed: false,
+                content: '学习如何备份和恢复数据库...'
+              },
+              { 
+                id: '4-3', 
+                title: '综合项目实战', 
+                type: 'exercise', 
+                duration: '120分钟', 
+                completed: false,
+                content: '完成一个完整的数据分析项目，运用所学的全部SQL知识...'
+              }
+            ]
+          }
+        ]
       }
     ];
     
