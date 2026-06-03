@@ -58,6 +58,16 @@ const Home = () => {
         duration: 20,
         rating: 4.9,
         students: 1750
+      },
+      {
+        id: '8',
+        title: 'MySQL数据库实战',
+        description: '从零掌握MySQL数据库管理，具备数据库设计、优化和维护能力',
+        cover_image: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=MySQL%20database%20course%20cover%20with%20mysql%20logo&image_size=landscape_16_9',
+        difficulty: '中级',
+        duration: 18,
+        rating: 4.8,
+        students: 1480
       }
     ]);
 
@@ -219,7 +229,7 @@ const Home = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {courses.map((course) => (
             <Link 
               key={course.id}
