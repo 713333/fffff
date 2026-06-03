@@ -363,9 +363,9 @@ SELECT * FROM users ORDER BY department ASC, age DESC;</code></pre>
 
   const getLessonTypeColor = (type: string) => {
     switch (type) {
-      case 'video': return 'bg-blue-100 text-blue-700';
-      case 'exercise': return 'bg-purple-100 text-purple-700';
-      case 'assessment': return 'bg-orange-100 text-orange-700';
+      case 'video': return 'bg-primary-100 text-primary-700';
+      case 'exercise': return 'bg-primary-200 text-primary-800';
+      case 'assessment': return 'bg-primary-300 text-primary-900';
       default: return 'bg-gray-100 text-gray-700';
     }
   };

@@ -395,9 +395,9 @@ const CourseDetail = () => {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case '初级': return 'bg-green-100 text-green-700';
-      case '中级': return 'bg-blue-100 text-blue-700';
-      case '高级': return 'bg-purple-100 text-purple-700';
+      case '初级': return 'bg-primary-100 text-primary-800';
+      case '中级': return 'bg-primary-200 text-primary-800';
+      case '高级': return 'bg-primary-300 text-primary-900';
       default: return 'bg-gray-100 text-gray-700';
     }
   };
@@ -575,9 +575,9 @@ const CourseDetail = () => {
                               </div>
                               <div className="flex items-center gap-2 text-sm text-gray-500">
                                 <span className={`px-2 py-0.5 rounded-full text-xs ${
-                                  lesson.type === 'video' ? 'bg-blue-100 text-blue-700' :
-                                  lesson.type === 'exercise' ? 'bg-purple-100 text-purple-700' :
-                                  'bg-orange-100 text-orange-700'
+                                  lesson.type === 'video' ? 'bg-primary-100 text-primary-700' :
+                                  lesson.type === 'exercise' ? 'bg-primary-200 text-primary-800' :
+                                  'bg-primary-300 text-primary-900'
                                 }`}>
                                   {lesson.type === 'video' ? '视频' : lesson.type === 'exercise' ? '练习' : '测评'}
                                 </span>

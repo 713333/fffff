@@ -84,7 +84,7 @@ const Home = () => {
         name: '数据处理',
         icon: <Database className="h-8 w-8" />,
         description: 'Pandas、NumPy等数据处理库',
-        color: 'from-purple-500 to-purple-700'
+        color: 'from-primary-600 to-primary-800'
       },
       {
         id: '数据可视化',
@@ -98,14 +98,14 @@ const Home = () => {
         name: '数据库分析',
         icon: <Database className="h-8 w-8" />,
         description: 'SQL、MySQL、PostgreSQL等数据库',
-        color: 'from-orange-500 to-orange-700'
+        color: 'from-primary-500 to-primary-700'
       },
       {
         id: '机器学习',
         name: '机器学习',
         icon: <TrendingUp className="h-8 w-8" />,
         description: 'Scikit-learn等机器学习库',
-        color: 'from-success-500 to-success-700'
+        color: 'from-primary-700 to-primary-900'
       }
     ]);
 
@@ -135,7 +135,7 @@ const Home = () => {
           
           <h1 className="text-4xl md:text-5xl font-bold mb-6 font-playfair leading-tight">
             用Python解锁
-            <span className="block bg-gradient-to-r from-yellow-300 to-orange-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-200 to-blue-400 bg-clip-text text-transparent">
               数据的无限可能
             </span>
           </h1>
@@ -171,8 +171,8 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { icon: Book, title: '完整课程体系', desc: '从Python基础到高级数据分析，覆盖商务数据分析的全流程技能', color: 'bg-primary-100 text-primary-800' },
-            { icon: Code, title: '互动式学习', desc: '在线代码编辑器，实时运行和反馈，提升实践能力', color: 'bg-accent-100 text-accent-800' },
-            { icon: Award, title: '成就激励系统', desc: '通过徽章、排行榜等激励机制，保持学习动力', color: 'bg-success-100 text-success-800' }
+            { icon: Code, title: '互动式学习', desc: '在线代码编辑器，实时运行和反馈，提升实践能力', color: 'bg-primary-100 text-primary-800' },
+            { icon: Award, title: '成就激励系统', desc: '通过徽章、排行榜等激励机制，保持学习动力', color: 'bg-primary-100 text-primary-800' }
           ].map((feature, index) => (
             <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
               <div className={`${feature.color} rounded-2xl w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
@@ -304,8 +304,8 @@ const Home = () => {
                   />
                   <defs>
                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#0ea5e9" />
-                      <stop offset="100%" stopColor="#d946ef" />
+                      <stop offset="0%" stopColor="#3b82f6" />
+                      <stop offset="100%" stopColor="#1d4ed8" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -320,8 +320,8 @@ const Home = () => {
               <h3 className="text-xl font-semibold mb-6">最近学习</h3>
               <div className="space-y-6">
                 {[
-                  { title: 'Python数据分析基础', progress: 60, color: 'from-blue-500 to-blue-600' },
-                  { title: 'Pandas数据处理', progress: 25, color: 'from-purple-500 to-purple-600' }
+                  { title: 'Python数据分析基础', progress: 60, color: 'from-primary-500 to-primary-700' },
+                  { title: 'Pandas数据处理', progress: 25, color: 'from-primary-600 to-primary-800' }
                 ].map((item, index) => (
                   <div key={index} className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
                     <div className="flex items-center gap-4 mb-3">

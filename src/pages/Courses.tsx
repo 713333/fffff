@@ -163,9 +163,9 @@ const Courses = () => {
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case '初级': return 'bg-green-100 text-green-800';
-      case '中级': return 'bg-blue-100 text-blue-800';
-      case '高级': return 'bg-purple-100 text-purple-800';
+      case '初级': return 'bg-primary-100 text-primary-800';
+      case '中级': return 'bg-primary-200 text-primary-800';
+      case '高级': return 'bg-primary-300 text-primary-900';
       default: return 'bg-gray-100 text-gray-800';
     }
   };
