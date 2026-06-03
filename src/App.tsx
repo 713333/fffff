@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
 import CourseDetail from './pages/CourseDetail';
+import Learn from './pages/Learn';
 import Practice from './pages/Practice';
 import PracticeDetail from './pages/PracticeDetail';
 import Assessment from './pages/Assessment';
@@ -29,6 +30,8 @@ function App() {
           <Route path="community" element={<Community />} />
           <Route path="profile" element={<Profile />} />
         </Route>
+        <Route path="learn/:courseId" element={<Learn />} />
+        <Route path="learn/:courseId/:lessonId" element={<Learn />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
