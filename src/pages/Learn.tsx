@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, 
   Play, 
+  Pause,
   Check, 
   Book, 
   Code, 
@@ -14,7 +15,10 @@ import {
   MessageSquare,
   CheckCircle2,
   List,
-  X
+  X,
+  Volume2,
+  VolumeX,
+  Maximize2
 } from 'lucide-react';
 
 const Learn = () => {
@@ -24,6 +28,54 @@ const Learn = () => {
   const [currentLesson, setCurrentLesson] = useState<any>(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [completedLessons, setCompletedLessons] = useState<Set<string>>(new Set());
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // 示例视频源 - 在实际项目中可以替换为真实视频
+  const getVideoSrc = (lessonId: string) => {
+    // 这里可以使用不同的视频源，或者使用占位视频
+    return 'https://www.w3schools.com/html/mov_bbb.mp4';
+  };
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      setProgress((videoRef.current.currentTime / videoRef.current.duration) * 100);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (videoRef.current) {
+      setDuration(videoRef.current.duration);
+    }
+  };
+
+  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newProgress = parseFloat(e.target.value);
+    setProgress(newProgress);
+    if (videoRef.current) {
+      videoRef.current.currentTime = (newProgress / 100) * videoRef.current.duration;
+    }
+  };
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
 
   useEffect(() => {
     const coursesData = [
@@ -40,6 +92,7 @@ const Learn = () => {
                 title: 'Python简介与环境搭建',
                 type: 'video',
                 duration: '45分钟',
+                preview: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Python%20programming%20course%20data%20analysis%20thumbnail&image_size=landscape_16_9',
                 content: `
                   <h2 class="text-2xl font-bold mb-4">欢迎学习Python数据分析基础</h2>
                   <p class="mb-4">本课程将带你从零开始学习Python数据分析，掌握核心概念和基础库的使用。</p>
@@ -71,13 +124,14 @@ const Learn = () => {
                     </div>
                   </div>
                 `,
-                videoUrl: 'https://example.com/video.mp4'
+                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4'
               },
               {
                 id: '1-2',
                 title: 'Python基本语法',
                 type: 'video',
                 duration: '60分钟',
+                preview: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Python%20programming%20code%20variables%20data%20types%20tutorial%20thumbnail&image_size=landscape_16_9',
                 content: `
                   <h2 class="text-2xl font-bold mb-4">Python基本语法</h2>
                   <p class="mb-4">本节课我们将学习Python的基本语法，包括变量、数据类型、运算符等。</p>
@@ -110,6 +164,7 @@ g = 10 ** 2     # 100 (幂)</code></pre>
                 title: 'Python数据类型',
                 type: 'video',
                 duration: '50分钟',
+                preview: 'https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Python%20list%20dictionary%20tuple%20data%20types%20programming%20thumbnail&image_size=landscape_16_9',
                 content: `
                   <h2 class="text-2xl font-bold mb-4">Python数据类型详解</h2>
                   <p class="mb-4">深入了解Python的核心数据类型：列表、字典、元组、集合等。</p>
@@ -339,6 +394,16 @@ SELECT * FROM users ORDER BY department ASC, age DESC;</code></pre>
     setCurrentLesson(foundLesson);
   }, [courseId, lessonId]);
 
+  // 当课程切换时重置播放器状态
+  useEffect(() => {
+    setIsPlaying(false);
+    setProgress(0);
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.pause();
+    }
+  }, [currentLesson]);
+
   const getLessonIcon = (type: string) => {
     switch (type) {
       case 'video':
@@ -464,18 +529,74 @@ SELECT * FROM users ORDER BY department ASC, age DESC;</code></pre>
         <div className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'lg:mr-80' : ''}`}>
           <div className="p-4 sm:p-6 lg:p-8">
             {/* 视频播放器区域 */}
-            <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-xl mb-6">
-              <div className="aspect-video flex items-center justify-center relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-accent-600">
-                  <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full"></div>
-                  <div className="absolute bottom-10 right-10 w-48 h-48 bg-white/10 rounded-full"></div>
-                </div>
-                <div className="relative z-10 text-center text-white">
-                  <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-white/30 transition-colors cursor-pointer">
-                    <Play className="h-10 w-10 fill-current ml-1" />
+            <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-xl mb-6 group">
+              <div className="aspect-video relative bg-black">
+                {/* 视频元素 */}
+                <video
+                  ref={videoRef}
+                  src={currentLesson ? getVideoSrc(currentLesson.id) : ''}
+                  className="w-full h-full object-contain"
+                  poster={currentLesson?.preview || ''}
+                  onTimeUpdate={handleTimeUpdate}
+                  onLoadedMetadata={handleLoadedMetadata}
+                  onEnded={() => setIsPlaying(false)}
+                />
+
+                {/* 播放按钮覆盖层 */}
+                {!isPlaying && (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center bg-black/30 cursor-pointer"
+                    onClick={handlePlay}
+                  >
+                    <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all group-hover:scale-110">
+                      <Play className="h-10 w-10 fill-current ml-1 text-white" />
+                    </div>
                   </div>
-                  <p className="text-lg font-medium">点击播放视频</p>
-                  <p className="text-white/70 text-sm mt-1">视频将在这里播放</p>
+                )}
+
+                {/* 控制栏 */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 transition-opacity opacity-0 group-hover:opacity-100">
+                  {/* 进度条 */}
+                  <div className="mb-3">
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={progress}
+                      onChange={handleSeek}
+                      className="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer"
+                      style={{
+                        background: `linear-gradient(to right, #3b82f6 ${progress}%, #6b7280 ${progress}%)`
+                      }}
+                    />
+                  </div>
+
+                  {/* 控制按钮 */}
+                  <div className="flex items-center justify-between text-white">
+                    <div className="flex items-center gap-4">
+                      <button 
+                        onClick={handlePlay}
+                        className="hover:text-primary-400 transition-colors"
+                      >
+                        {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
+                      </button>
+
+                      <button 
+                        onClick={() => setIsMuted(!isMuted)}
+                        className="hover:text-primary-400 transition-colors"
+                      >
+                        {isMuted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
+                      </button>
+
+                      <span className="text-sm">
+                        {formatTime((progress / 100) * duration)} / {formatTime(duration)}
+                      </span>
+                    </div>
+
+                    <button className="hover:text-primary-400 transition-colors">
+                      <Maximize2 className="h-5 w-5" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
